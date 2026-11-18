@@ -2,31 +2,33 @@
   <div class="topbar">
     <div class="container">
       <div><span class="accent"><%= site.rc %></span> · Premier Handcrafted Leatherware &amp; Executive Training</div>
-      <div><%= site.address %> · Strictly Institutional &amp; Bespoke</div>
+      <div class="topbar-meta"><%= site.address %> · Strictly Institutional &amp; Bespoke</div>
     </div>
   </div>
-  <div class="container nav-row">
-    <a class="brand" href="/" aria-label="Rayfort Investment home">
-      <div class="brand-mark">R</div>
-      <div>
-        <div class="brand-name">Rayfort</div>
-        <div class="brand-sub">Investment Co. Ltd</div>
+  <div class="nav-shell" id="rf-nav-shell">
+    <div class="container nav-row">
+      <a class="brand" href="/" aria-label="Rayfort Investment home">
+        <div class="brand-mark" aria-hidden="true">R</div>
+        <div>
+          <div class="brand-name">Rayfort</div>
+          <div class="brand-sub">Investment Co. Ltd</div>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/" <%= page === 'home' ? 'aria-current="page"' : '' %>>Home</a>
+        <a href="/bags" <%= page === 'bags' ? 'aria-current="page"' : '' %>>Bags</a>
+        <a href="/classes" <%= page === 'classes' ? 'aria-current="page"' : '' %>>Classes</a>
+        <a href="/blog" <%= page === 'blog' ? 'aria-current="page"' : '' %>>Blog</a>
+        <a href="/testimonials" <%= page === 'testimonials' ? 'aria-current="page"' : '' %>>Testimonials</a>
+        <a href="/about" <%= page === 'about' ? 'aria-current="page"' : '' %>>About</a>
+        <a href="/contact" <%= page === 'contact' ? 'aria-current="page"' : '' %>>Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-primary magnetic" href="/contact#inquiry">Request Catalogue</a>
+        <button type="button" class="menu-btn" id="rf-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="rf-mobile-nav">
+          <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+        </button>
       </div>
-    </a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="/" <%= page === 'home' ? 'aria-current="page"' : '' %>>Home</a>
-      <a href="/bags" <%= page === 'bags' ? 'aria-current="page"' : '' %>>Bags</a>
-      <a href="/classes" <%= page === 'classes' ? 'aria-current="page"' : '' %>>Classes</a>
-      <a href="/blog" <%= page === 'blog' ? 'aria-current="page"' : '' %>>Blog</a>
-      <a href="/testimonials" <%= page === 'testimonials' ? 'aria-current="page"' : '' %>>Testimonials</a>
-      <a href="/about" <%= page === 'about' ? 'aria-current="page"' : '' %>>About</a>
-      <a href="/contact" <%= page === 'contact' ? 'aria-current="page"' : '' %>>Contact</a>
-    </nav>
-    <div class="nav-actions">
-      <a class="btn btn-primary" href="/contact#inquiry">Request Catalogue</a>
-      <button type="button" class="menu-btn" id="rf-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="rf-mobile-nav">
-        <span class="material-symbols-outlined">menu</span>
-      </button>
     </div>
   </div>
 </header>

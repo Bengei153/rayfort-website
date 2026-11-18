@@ -1,43 +1,47 @@
 <section class="page-hero">
-  <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=85" alt="Architectural office interior">
+  <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1800&q=85" alt="Quiet architectural office interior" width="1800" height="1200">
   <div class="container">
-    <div class="eyebrow"><span class="dot"></span> <%= site.rc %></div>
-    <h1 style="font-size:clamp(2.2rem,5vw,3.5rem);color:#fff;max-width:16ch;margin:0.75rem 0">Institutional craft. Executive clarity.</h1>
-    <p style="color:#dce3ef;max-width:36rem">Two sovereign divisions under one registered company — leather atelier and executive classes — never conflated.</p>
+    <div class="eyebrow"><%= site.rc %></div>
+    <h1>Institutional craft. Executive clarity.</h1>
+    <p>Two sovereign divisions under one registered company — leather atelier and executive classes — never conflated.</p>
   </div>
 </section>
 
 <section class="section">
-  <div class="container" style="display:grid;gap:2rem;grid-template-columns:1fr">
-    <div>
-      <div class="label">Our Mandate</div>
-      <h2 style="color:var(--rf-navy-deep);margin:0.4rem 0">Elegance in carry. Authority in speech.</h2>
-      <div style="width:3rem;height:3px;background:#530005;margin-bottom:1rem"></div>
-      <p class="lead">Rayfort Investment Company Ltd. (<%= site.rc %>) is headquartered at <%= site.address %>. Our atelier produces heirloom leather goods; our academy equips board directors and enterprise leadership with commanding presence.</p>
-      <p class="lead">Every engagement — whether a numbered leather commission or a closed-door rhetoric intensive — is governed by precision, discretion, and permanence.</p>
+  <div class="container" style="display:grid;gap:2.5rem">
+    <div data-reveal>
+      <div class="label">Our mandate</div>
+      <h2 style="font-size:clamp(1.75rem,3vw,2.4rem);margin:0.4rem 0">Elegance in carry. Authority in speech.</h2>
+      <hr class="rule">
+      <p class="lead" style="margin-top:1rem">Rayfort Investment Company Ltd. (<%= site.rc %>) is headquartered at <%= site.address %>. Our atelier produces heirloom leather goods; our academy equips board directors and enterprise leadership with commanding presence.</p>
+      <p class="lead" style="margin-top:0.85rem">Every engagement — whether a numbered leather commission or a closed-door rhetoric intensive — is governed by precision, discretion, and permanence.</p>
     </div>
-    <div class="grid-2">
-      <article class="card" style="padding:1.5rem">
-        <h3 style="color:var(--rf-navy);margin-top:0">Rayfort Bags</h3>
-        <p class="lead">Nine curated silhouettes in full-grain leather — a retail and institutional division of its own.</p>
-        <a href="/bags">Explore bags →</a>
-      </article>
-      <article class="card" style="padding:1.5rem">
-        <h3 style="color:var(--rf-navy);margin-top:0">Executive Classes</h3>
-        <p class="lead">Clinical coaching in speaking, negotiation, media crisis, and leadership presentations.</p>
-        <a href="/classes">View classes →</a>
-      </article>
+    <div class="pillars" data-reveal>
+      <a class="pillar" href="/bags">
+        <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=1000&q=85" alt="" loading="lazy" width="1000" height="750">
+        <div class="label" style="color:#ffdad6">Division</div>
+        <h3>Rayfort Bags</h3>
+        <p>Nine curated silhouettes in full-grain leather — a retail and institutional division of its own.</p>
+        <span class="pillar-cta">Explore bags <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></span>
+      </a>
+      <a class="pillar pillar--academy" href="/classes">
+        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1000&q=85" alt="" loading="lazy" width="1000" height="750">
+        <div class="label" style="color:#dce3ef">Division</div>
+        <h3>Executive Classes</h3>
+        <p>Clinical coaching in speaking, negotiation, media crisis, and leadership presentations.</p>
+        <span class="pillar-cta">View classes <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></span>
+      </a>
     </div>
   </div>
 </section>
 
 <section class="section section-muted">
   <div class="container">
-    <div class="stat-grid">
+    <div class="stat-grid" data-reveal>
       <div class="stat"><strong><%= site.rc.replace('RC ','') %></strong><div class="label">Corporate Affairs Commission</div></div>
-      <div class="stat"><strong>250+</strong><div class="label">Executives mentored</div></div>
+      <div class="stat"><strong data-count="250" data-suffix="+">0</strong><div class="label">Executives mentored</div></div>
       <div class="stat"><strong>10-Year</strong><div class="label">Artisan warranty</div></div>
-      <div class="stat"><strong><%= site.address %></strong><div class="label">Headquarters</div></div>
+      <div class="stat"><strong style="font-size:1.15rem;line-height:1.3"><%= site.address %></strong><div class="label">Headquarters</div></div>
     </div>
   </div>
 </section>

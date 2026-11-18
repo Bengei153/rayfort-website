@@ -1,50 +1,51 @@
 <section class="page-hero">
-  <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=85" alt="Executive leadership workshop">
+  <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1800&q=85" alt="Executive leadership workshop in progress" width="1800" height="1200">
   <div class="container">
-    <div class="eyebrow"><span class="dot"></span> Executive Classes · Separate from Bags</div>
-    <h1 style="font-size:clamp(2.2rem,5vw,3.5rem);color:#fff;max-width:20ch;margin:0.75rem 0">Communication &amp; Leadership Masterclasses</h1>
-    <p style="color:#dce3ef;max-width:40rem;line-height:1.7">A dedicated academy division for boardroom rhetoric, media crisis handling, and C-suite presence — not retail leatherware.</p>
-    <div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:1.25rem">
-      <a class="btn btn-light" href="/contact#inquiry">Inquire for Corporate Cohort</a>
-      <a class="btn btn-outline" href="#curriculum">Explore Modules</a>
+    <div class="eyebrow">Executive Classes · Separate from Bags</div>
+    <h1>Communication &amp; leadership masterclasses</h1>
+    <p>A dedicated academy division for boardroom rhetoric, media crisis handling, and C-suite presence — not retail leatherware.</p>
+    <div class="actions">
+      <a class="btn btn-light magnetic" href="/contact#inquiry">Inquire for corporate cohort</a>
+      <a class="btn btn-outline magnetic" href="#curriculum">Explore modules</a>
     </div>
   </div>
 </section>
 
 <section class="section section-white">
-  <div class="container stat-grid">
-    <div class="stat"><strong>98%</strong><div class="label">Confidence Boost</div></div>
-    <div class="stat"><strong>250+</strong><div class="label">Executives Trained</div></div>
-    <div class="stat"><strong>4:1</strong><div class="label">Coach Ratio</div></div>
-    <div class="stat"><strong>100%</strong><div class="label">Video-Reviewed</div></div>
+  <div class="container stat-grid" data-reveal>
+    <div class="stat"><strong data-count="98" data-suffix="%">0</strong><div class="label">Confidence boost</div></div>
+    <div class="stat"><strong data-count="250" data-suffix="+">0</strong><div class="label">Executives trained</div></div>
+    <div class="stat"><strong>4:1</strong><div class="label">Coach ratio</div></div>
+    <div class="stat"><strong data-count="100" data-suffix="%">0</strong><div class="label">Video-reviewed</div></div>
   </div>
 </section>
 
 <section class="section" id="curriculum">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head" data-reveal>
       <div>
-        <div class="label">Five Pillar Foundations</div>
-        <h2 style="margin:0.35rem 0;color:var(--rf-navy-deep)">Core Masterclass Curricula</h2>
-        <p class="lead">Each programme is listed separately from the Rayfort Bags catalogue.</p>
+        <div class="label">Five pillar foundations</div>
+        <h2>Core masterclass curricula</h2>
+        <p class="lead" style="margin-top:0.5rem">Each programme is listed separately from the Rayfort Bags catalogue.</p>
       </div>
     </div>
     <% if (!classes.length) { %>
-      <div class="card" style="padding:2rem;text-align:center">
-        <h3 style="color:var(--rf-navy)">No classes published yet</h3>
+      <div class="empty-state" data-reveal>
+        <h3>No classes published yet</h3>
         <p class="lead">Contact admissions for a private curriculum brief.</p>
+        <a class="btn btn-primary" href="/contact#inquiry">Contact admissions</a>
       </div>
     <% } else { %>
       <div class="grid-2">
         <% classes.forEach(function(course) { %>
-          <article class="card">
-            <a href="/classes/<%= course.slug %>" class="card-media" style="aspect-ratio:16/10">
-              <% if (course.image_url) { %><img src="<%= course.image_url %>" alt="<%= course.title %>" loading="lazy"><% } %>
+          <article class="tile" data-reveal>
+            <a href="/classes/<%= course.slug %>" class="tile-media" style="aspect-ratio:16/10" aria-label="<%= course.title %>">
+              <% if (course.image_url) { %><img src="<%= course.image_url %>" alt="<%= course.title %>" loading="lazy" width="800" height="500"><% } %>
             </a>
-            <div class="card-body">
+            <div class="tile-body">
               <div class="label"><%= course.module_label || 'Programme' %></div>
-              <h3 style="margin:0"><a href="/classes/<%= course.slug %>" style="text-decoration:none;color:var(--rf-navy)"><%= course.title %></a></h3>
-              <p class="lead" style="margin:0;font-size:0.9rem"><%= course.summary %></p>
+              <h3><a href="/classes/<%= course.slug %>"><%= course.title %></a></h3>
+              <p class="lead" style="font-size:0.9rem"><%= course.summary %></p>
               <div class="label"><%= course.duration || '' %><% if (course.format) { %> · <%= course.format %><% } %></div>
               <a class="btn btn-ghost" style="align-self:start" href="/classes/<%= course.slug %>">View module</a>
             </div>
@@ -55,13 +56,15 @@
   </div>
 </section>
 
-<section class="section section-muted">
-  <div class="container" style="display:grid;gap:1.5rem;grid-template-columns:1fr">
-    <div class="card" style="padding:2rem;background:var(--rf-navy);color:#fff">
-      <div class="eyebrow">Executive Admissions</div>
-      <h2 style="color:#fff;margin:0.5rem 0">Book a Cohort or Private Advisory</h2>
-      <p style="color:#dce3ef;max-width:36rem">Schedule a diagnostic call. We curate a bespoke curriculum for your leadership team — independent of bag commissions.</p>
-      <a class="btn btn-light" style="margin-top:1rem" href="/contact#inquiry">Submit Inquiry</a>
+<section class="section section-navy">
+  <div class="container cta-band" data-reveal>
+    <div>
+      <div class="eyebrow">Executive admissions</div>
+      <h2>Book a cohort or private advisory</h2>
+      <p>Schedule a diagnostic call. We curate a bespoke curriculum for your leadership team — independent of bag commissions.</p>
+    </div>
+    <div>
+      <a class="btn btn-light magnetic" href="/contact#inquiry">Submit inquiry</a>
     </div>
   </div>
 </section>

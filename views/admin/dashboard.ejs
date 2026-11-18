@@ -12,6 +12,22 @@
   <div class="stat"><strong><%= stats.testimonials %></strong><div class="label">Testimonials</div></div>
 </div>
 
+<div class="chart-frame" id="rf-admin-chart-frame" style="margin-bottom:2rem;background:#fff;border:1px solid var(--rf-hairline);border-radius:var(--rf-radius-lg);padding:1.25rem">
+  <div style="display:flex;justify-content:space-between;gap:1rem;align-items:center;flex-wrap:wrap;margin-bottom:0.75rem">
+    <div>
+      <div class="label">Content inventory</div>
+      <h2 style="margin:0.25rem 0 0;font-size:1.35rem">Published assets by type</h2>
+    </div>
+    <button type="button" class="btn btn-ghost" id="rf-export-admin-chart" style="min-height:40px">
+      <span class="material-symbols-outlined" aria-hidden="true">download</span>
+      Export chart
+    </button>
+  </div>
+  <svg id="rf-admin-chart" viewBox="0 0 480 220" role="img" aria-label="Bar chart of published content counts" style="width:100%;height:auto">
+    <title>Published content by type</title>
+  </svg>
+</div>
+
 <div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:2rem">
   <a class="btn btn-primary" href="/admin/bags/new">Post new design</a>
   <a class="btn btn-ghost" href="/admin/blog/new">Add story</a>
@@ -26,7 +42,7 @@
     </thead>
     <tbody>
       <% if (!recentInquiries.length) { %>
-        <tr><td colspan="4">No inquiries yet.</td></tr>
+        <tr><td colspan="4">No inquiries yet. New contact form submissions will appear here.</td></tr>
       <% } %>
       <% recentInquiries.forEach(function(i) { %>
         <tr>
@@ -40,3 +56,71 @@
   </table>
 </div>
 <p style="margin-top:0.75rem"><a href="/admin/inquiries">View all inquiries →</a></p>
+
+<script>
+(() => {
+  const svg = document.getElementById("rf-admin-chart");
+  if (!svg) return;
+  const series = [
+    { label: "Bags", value: <%= Number(stats.bags) || 0 %>, color: "#15224f" },
+    { label: "Classes", value: <%= Number(stats.classes) || 0 %>, color: "#384473" },
+    { label: "Stories", value: <%= Number(stats.posts) || 0 %>, color: "#530005" },
+    { label: "Quotes", value: <%= Number(stats.testimonials) || 0 %>, color: "#b0b7c3" }
+  ];
+  const max = Math.max(1, ...series.map((s) => s.value));
+  const ns = "http://www.w3.org/2000/svg";
+  const add = (name, attrs) => {
+    const el = document.createElementNS(ns, name);
+    Object.entries(attrs).forEach(([k, v]) => el.setAttribute(k, v));
+    svg.appendChild(el);
+    return el;
+  };
+  const pad = { t: 20, r: 16, b: 36, l: 16 };
+  const w = 480, h = 220;
+  const barW = (w - pad.l - pad.r) / series.length * 0.55;
+  series.forEach((s, i) => {
+    const slot = (w - pad.l - pad.r) / series.length;
+    const x = pad.l + slot * i + (slot - barW) / 2;
+    const barH = ((h - pad.t - pad.b) * s.value) / max;
+    const y = h - pad.b - barH;
+    add("rect", { x, y, width: barW, height: Math.max(barH, 2), rx: 4, fill: s.color });
+    add("text", {
+      x: x + barW / 2, y: y - 8, "text-anchor": "middle", fill: "#191c1e",
+      "font-size": "12", "font-family": "Plus Jakarta Sans, sans-serif", "font-weight": "700"
+    }).textContent = String(s.value);
+    add("text", {
+      x: x + barW / 2, y: h - 12, "text-anchor": "middle", fill: "#585f69",
+      "font-size": "11", "font-family": "Plus Jakarta Sans, sans-serif", "letter-spacing": "0.04em"
+    }).textContent = s.label;
+  });
+
+  document.getElementById("rf-export-admin-chart")?.addEventListener("click", async (e) => {
+    const btn = e.currentTarget;
+    const prev = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = "Exporting…";
+    try {
+      const clone = svg.cloneNode(true);
+      clone.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+      const url = URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(clone)], { type: "image/svg+xml;charset=utf-8" }));
+      const img = new Image();
+      await new Promise((res, rej) => { img.onload = res; img.onerror = rej; img.src = url; });
+      const canvas = document.createElement("canvas");
+      canvas.width = 960; canvas.height = 440;
+      const ctx = canvas.getContext("2d");
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      URL.revokeObjectURL(url);
+      const a = document.createElement("a");
+      a.href = canvas.toDataURL("image/png");
+      a.download = "rayfort-admin-inventory.png";
+      a.click();
+      btn.innerHTML = "Saved";
+    } catch (_) {
+      btn.innerHTML = "Failed";
+    }
+    setTimeout(() => { btn.innerHTML = prev; btn.disabled = false; }, 1400);
+  });
+})();
+</script>

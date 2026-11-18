@@ -1,63 +1,63 @@
 <section class="page-hero">
-  <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=1600&q=85" alt="Luxury leather tote on workshop table">
+  <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=1800&q=85" alt="Luxury leather tote on a workshop table" width="1800" height="1200">
   <div class="container">
-    <div class="eyebrow"><span class="dot"></span> Atelier Division · <%= site.rc %></div>
-    <h1 style="font-size:clamp(2.2rem,5vw,3.75rem);color:#fff;max-width:18ch;margin:0.75rem 0">The Art of Handcrafted Leather</h1>
-    <p style="color:#dce3ef;max-width:38rem;line-height:1.7">Rayfort Bags is a dedicated division — separate from our executive classes — focused solely on heirloom leatherware.</p>
-    <div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:1.25rem">
-      <a class="btn btn-light" href="#catalogue">Explore Catalogue</a>
-      <a class="btn btn-outline" href="/contact#inquiry">Institutional Orders</a>
+    <div class="eyebrow">Atelier Division · <%= site.rc %></div>
+    <h1>The art of handcrafted leather</h1>
+    <p>Rayfort Bags is a dedicated division — separate from our executive classes — focused solely on heirloom leatherware.</p>
+    <div class="actions">
+      <a class="btn btn-light magnetic" href="#catalogue">Explore catalogue</a>
+      <a class="btn btn-outline magnetic" href="/contact#inquiry">Institutional orders</a>
     </div>
   </div>
 </section>
 
 <div class="filter-bar" id="catalogue">
-  <div class="container filter-row">
+  <div class="container filter-row" role="navigation" aria-label="Bag categories">
     <% categories.forEach(function(cat) { %>
-      <a href="/bags<%= cat.id === 'all' ? '' : '?category=' + cat.id %>" class="<%= activeCategory === cat.id ? 'active' : '' %>"><%= cat.label %></a>
+      <a href="/bags<%= cat.id === 'all' ? '' : '?category=' + cat.id %>" class="<%= activeCategory === cat.id ? 'active' : '' %>" <%= activeCategory === cat.id ? 'aria-current="true"' : '' %>><%= cat.label %></a>
     <% }) %>
   </div>
 </div>
 
 <section class="section">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head" data-reveal>
       <div>
-        <div class="label">Master Archive · Editions</div>
-        <h2 style="margin:0.35rem 0;color:var(--rf-navy-deep)">Curated Rayfort Catalogue</h2>
+        <div class="label">Master archive · Editions</div>
+        <h2>Curated Rayfort catalogue</h2>
       </div>
       <p class="lead" style="margin:0"><%= bags.length %> design<%= bags.length === 1 ? '' : 's' %> in this view</p>
     </div>
 
     <% if (!bags.length) { %>
-      <div class="card" style="padding:2rem;text-align:center">
-        <h3 style="margin-top:0;color:var(--rf-navy)">No designs in this category yet</h3>
+      <div class="empty-state" data-reveal>
+        <h3>No designs in this category yet</h3>
         <p class="lead">Browse the full catalogue or inquire for a bespoke commission.</p>
         <a class="btn btn-primary" href="/bags">All collections</a>
       </div>
     <% } else { %>
       <div class="grid-3">
         <% bags.forEach(function(bag) { %>
-          <article class="card">
-            <a href="/bags/<%= bag.slug %>" class="card-media">
-              <% if (bag.image_url) { %><img src="<%= bag.image_url %>" alt="<%= bag.title %>" loading="lazy"><% } %>
+          <article class="tile" data-reveal>
+            <a href="/bags/<%= bag.slug %>" class="tile-media" aria-label="<%= bag.title %>">
+              <% if (bag.image_url) { %><img src="<%= bag.image_url %>" alt="<%= bag.title %>" loading="lazy" width="640" height="800"><% } %>
               <% if (bag.badge) { %><span class="badge"><%= bag.badge %></span><% } %>
             </a>
-            <div class="card-body">
-              <div class="card-meta">
+            <div class="tile-body">
+              <div class="tile-meta">
                 <span><%= bag.category %></span>
-                <span style="color:#530005;font-weight:700"><%= bag.code || '' %></span>
+                <span style="color:var(--rf-crimson-deep);font-weight:700"><%= bag.code || '' %></span>
               </div>
-              <h3 style="margin:0"><a href="/bags/<%= bag.slug %>" style="text-decoration:none;color:var(--rf-navy)"><%= bag.title %></a></h3>
-              <p class="lead" style="margin:0;font-size:0.9rem"><%= bag.summary %></p>
+              <h3><a href="/bags/<%= bag.slug %>"><%= bag.title %></a></h3>
+              <p class="lead" style="font-size:0.9rem"><%= bag.summary %></p>
               <% if (bag.features && bag.features.length) { %>
                 <div class="chip-row">
                   <% bag.features.slice(0,3).forEach(function(f) { %><span class="chip"><%= f %></span><% }) %>
                 </div>
               <% } %>
-              <div style="margin-top:auto;padding-top:0.75rem;border-top:1px solid var(--rf-hairline);display:flex;justify-content:space-between;align-items:center;gap:0.75rem">
+              <div class="tile-foot">
                 <span class="label"><%= bag.price_note || 'Inquire' %></span>
-                <a class="btn btn-primary" style="padding:0.55rem 0.9rem" href="/contact?interest=<%= encodeURIComponent(bag.title) %>#inquiry">Inquire</a>
+                <a class="btn btn-primary" style="padding:0.55rem 0.9rem;min-height:40px" href="/contact?interest=<%= encodeURIComponent(bag.title) %>#inquiry">Inquire</a>
               </div>
             </div>
           </article>

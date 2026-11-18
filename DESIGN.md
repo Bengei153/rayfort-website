@@ -211,3 +211,16 @@ The design system incorporates a disciplined, subtle corner rounding (`roundedne
 
 ### Navigation & Header
 - **Top Navigation Bar:** Full-width architectural bar in `#FFFFFF` with a bottom hairline border (`#E8ECF2`). Anchored by the dual-toned insignia on the left, centered navigation links in tracked uppercase `label-md`, and a high-contrast executive action trigger on the right.
+
+### Final Prompt
+- **The Prompt:**  I want you to improve this website right now it looks really sloppy                                              
+  
+  You cane tools from KokonutUI - liquid glass components                                                          
+  React Bits - shader gradient backgrounds                                                                         
+  Bklit- designed charts with video exports                                                                        
+  Limora - on-brand AI images                                                                                      
+  Anime.js - scroll and SVG animations                                                                             
+  Motion - physics based motions                                                                                   
+  Rive - Interactive cursor animation                                                                              
+                                                                                                                   
+   also want you to take note of Human Computer Interraction princples when mplementing these  

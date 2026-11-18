@@ -1,146 +1,201 @@
-<section class="hero-split">
-  <div class="hero-pane">
-    <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=1400&q=85" alt="Handcrafted structured leather bag">
-    <div class="eyebrow"><span class="dot"></span> Haute Leatherware Division</div>
-    <h1 style="font-size:clamp(2rem,4vw,2.75rem);margin:0.75rem 0;color:#fff">The Bespoke Leather Atelier</h1>
-    <p style="color:#dce3ef;max-width:28rem;line-height:1.65">Meticulously hand-stitched grain leathers, custom brass hardware, and sovereign finishing for dignitaries and connoisseurs.</p>
-    <div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:1.25rem;align-items:center">
-      <a class="btn btn-light" href="/bags">Explore Rayfort Bags</a>
-      <span class="label" style="color:#c6c5d0">9 Distinct Lines</span>
+<section class="hero-brand" aria-label="Rayfort Investment">
+  <img
+    class="hero-brand__media"
+    src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=2000&q=85"
+    alt="Structured full-grain leather bag in soft atelier light"
+    width="2000"
+    height="1333"
+    fetchpriority="high"
+  >
+  <canvas class="hero-brand__shader" id="rf-shader" aria-hidden="true"></canvas>
+  <div class="hero-brand__veil" aria-hidden="true"></div>
+  <div class="hero-brand__content">
+    <p class="hero-brand__mark" data-hero-brand>Rayfort</p>
+    <h1 class="hero-brand__headline font-display" data-hero-line>Elegance in carry. Authority in speech.</h1>
+    <p class="hero-brand__lede" data-hero-lede>Bespoke leather atelier and executive communication classes under one registered house — RC 1414179.</p>
+    <div class="hero-brand__actions" data-hero-cta>
+      <a class="btn btn-light magnetic" href="/bags">Explore Rayfort Bags</a>
+      <a class="btn btn-soft magnetic" href="/classes">View Executive Classes</a>
     </div>
   </div>
-  <div class="hero-pane">
-    <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1400&q=85" alt="Executive addressing a professional audience">
-    <div class="eyebrow" style="color:#dce3ef"><span class="dot" style="background:#dce3ef"></span> C-Suite Academy Division</div>
-    <h2 style="font-size:clamp(2rem,4vw,2.75rem);margin:0.75rem 0;color:#fff">Institutional Masterclass &amp; Oratory</h2>
-    <p style="color:#dce3ef;max-width:28rem;line-height:1.65">Commanding presence, boardroom negotiation, and crisis speech architecture for chairs and enterprise leadership.</p>
-    <div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:1.25rem;align-items:center">
-      <a class="btn btn-accent" href="/classes">Discover Executive Classes</a>
-      <span class="label" style="color:#c6c5d0">RC 1414179 Accredited</span>
-    </div>
+  <div class="hero-scroll-hint" aria-hidden="true">
+    Scroll
+    <span></span>
   </div>
 </section>
 
 <section class="section">
-  <div class="container" style="display:grid;gap:2rem;grid-template-columns:1fr;align-items:center">
-    <div style="display:grid;gap:2rem">
+  <div class="container">
+    <div class="section-head" data-reveal>
       <div>
-        <div class="label">The Synthesis</div>
-        <h2 style="margin:0.4rem 0 0.75rem;font-size:clamp(1.75rem,3vw,2.5rem);color:var(--rf-navy-deep)">Elegance in Carry.<br>Authority in Speech.</h2>
-        <div style="width:3rem;height:3px;background:#530005"></div>
+        <div class="label">Two divisions · One house</div>
+        <h2>Choose your path</h2>
+        <hr class="rule">
       </div>
-      <div class="grid-2">
-        <article class="card" style="padding:1.5rem">
-          <h3 style="margin:0 0 0.5rem;color:var(--rf-navy)">Uncompromising Materiality</h3>
-          <p class="lead" style="margin:0">Every Rayfort Bag uses saddle-stitching, vegetable-tanned hides, and architectural lines fit for corporate governance.</p>
-          <a href="/bags" class="btn btn-ghost" style="margin-top:1rem;align-self:start">Shop Bags</a>
-        </article>
-        <article class="card" style="padding:1.5rem">
-          <h3 style="margin:0 0 0.5rem;color:var(--rf-navy)">Strategic Oratory Rigor</h3>
-          <p class="lead" style="margin:0">Our classes reconstruct institutional discourse for investor assemblies, negotiations, and commanding vocal resonance.</p>
-          <a href="/classes" class="btn btn-ghost" style="margin-top:1rem;align-self:start">View Classes</a>
-        </article>
-      </div>
+      <p class="lead">Leather commissions and leadership curricula stay deliberately separate — so every inquiry reaches the right atelier or academy desk.</p>
+    </div>
+    <div class="pillars">
+      <a class="pillar" href="/bags" data-reveal>
+        <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1200&q=85" alt="" width="1200" height="900" loading="lazy">
+        <div class="label" style="color:#ffdad6">Haute Leatherware</div>
+        <h3>Rayfort Bags</h3>
+        <p>Hand-stitched grain leathers, custom brass hardware, and numbered silhouettes for institutional gifting and personal commission.</p>
+        <span class="pillar-cta">Enter the atelier <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></span>
+      </a>
+      <a class="pillar pillar--academy" href="/classes" data-reveal>
+        <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1200&q=85" alt="" width="1200" height="900" loading="lazy">
+        <div class="label" style="color:#dce3ef">C-Suite Academy</div>
+        <h3>Executive Classes</h3>
+        <p>Boardroom oratory, negotiation presence, and crisis speech architecture for directors, chairs, and enterprise leadership.</p>
+        <span class="pillar-cta">Open the curriculum <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></span>
+      </a>
     </div>
   </div>
 </section>
 
 <section class="section section-muted">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head" data-reveal>
       <div>
-        <div class="label">Division Showcase · Bags</div>
-        <h2 style="margin:0.35rem 0;color:var(--rf-navy-deep)">Featured Leather Designs</h2>
-        <p class="lead">New atelier releases you can commission, gift, or reserve.</p>
+        <div class="label">Division showcase · Bags</div>
+        <h2>Featured leather designs</h2>
+        <p class="lead" style="margin-top:0.5rem">New atelier releases you can commission, gift, or reserve.</p>
       </div>
-      <a class="btn btn-ghost" href="/bags">View Master Catalogue</a>
+      <a class="btn btn-ghost magnetic" href="/bags">View master catalogue</a>
     </div>
-    <div class="grid-3">
-      <% bags.forEach(function(bag) { %>
-        <article class="card">
-          <a href="/bags/<%= bag.slug %>" class="card-media">
-            <% if (bag.image_url) { %><img src="<%= bag.image_url %>" alt="<%= bag.title %>" loading="lazy"><% } %>
-            <% if (bag.badge) { %><span class="badge"><%= bag.badge %></span><% } %>
-          </a>
-          <div class="card-body">
-            <div class="card-meta"><span><%= bag.category %></span><span><%= bag.code || '' %></span></div>
-            <h3 style="margin:0;color:var(--rf-navy)"><a href="/bags/<%= bag.slug %>" style="text-decoration:none"><%= bag.title %></a></h3>
-            <p class="lead" style="margin:0;font-size:0.9rem"><%= bag.summary %></p>
-          </div>
-        </article>
-      <% }) %>
-    </div>
+    <% if (!bags.length) { %>
+      <div class="empty-state" data-reveal>
+        <h3>Catalogue updating</h3>
+        <p class="lead">New designs will appear here shortly. Request the current lookbook in the meantime.</p>
+        <a class="btn btn-primary" href="/contact#inquiry">Request catalogue</a>
+      </div>
+    <% } else { %>
+      <div class="grid-3">
+        <% bags.forEach(function(bag) { %>
+          <article class="tile" data-reveal>
+            <a href="/bags/<%= bag.slug %>" class="tile-media" aria-label="<%= bag.title %>">
+              <% if (bag.image_url) { %><img src="<%= bag.image_url %>" alt="<%= bag.title %>" loading="lazy" width="640" height="800"><% } %>
+              <% if (bag.badge) { %><span class="badge"><%= bag.badge %></span><% } %>
+            </a>
+            <div class="tile-body">
+              <div class="tile-meta"><span><%= bag.category %></span><span><%= bag.code || '' %></span></div>
+              <h3><a href="/bags/<%= bag.slug %>"><%= bag.title %></a></h3>
+              <p class="lead" style="font-size:0.9rem"><%= bag.summary %></p>
+              <div class="tile-foot">
+                <span class="label"><%= bag.price_note || 'Inquire' %></span>
+                <a class="btn btn-primary" style="padding:0.55rem 0.9rem;min-height:40px" href="/contact?interest=<%= encodeURIComponent(bag.title) %>#inquiry">Inquire</a>
+              </div>
+            </div>
+          </article>
+        <% }) %>
+      </div>
+    <% } %>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head" data-reveal>
       <div>
-        <div class="label">Division Showcase · Classes</div>
-        <h2 style="margin:0.35rem 0;color:var(--rf-navy-deep)">Executive Communication Programmes</h2>
-        <p class="lead">Separate from the atelier — rigorous curricula for directors and C-suite teams.</p>
+        <div class="label">Division showcase · Classes</div>
+        <h2>Executive communication programmes</h2>
+        <p class="lead" style="margin-top:0.5rem">Rigorous curricula for directors and C-suite teams — listed apart from the leather catalogue.</p>
       </div>
-      <a class="btn btn-primary" href="/classes">Explore Curriculum</a>
+      <a class="btn btn-primary magnetic" href="/classes">Explore curriculum</a>
     </div>
-    <div class="grid-2">
-      <% classes.forEach(function(course) { %>
-        <article class="card" style="flex-direction:row;min-height:180px">
-          <div style="width:140px;flex-shrink:0;background:#edeef0">
-            <% if (course.image_url) { %><img src="<%= course.image_url %>" alt="" style="width:100%;height:100%;object-fit:cover"><% } %>
-          </div>
-          <div class="card-body">
-            <div class="label"><%= course.module_label || 'Programme' %></div>
-            <h3 style="margin:0;color:var(--rf-navy)"><a href="/classes/<%= course.slug %>" style="text-decoration:none"><%= course.title %></a></h3>
-            <p class="lead" style="margin:0;font-size:0.9rem"><%= course.summary %></p>
-          </div>
-        </article>
-      <% }) %>
-    </div>
+    <% if (!classes.length) { %>
+      <div class="empty-state" data-reveal>
+        <h3>Programmes forthcoming</h3>
+        <p class="lead">Ask admissions for a private curriculum brief tailored to your cadre.</p>
+        <a class="btn btn-primary" href="/contact#inquiry">Contact admissions</a>
+      </div>
+    <% } else { %>
+      <div class="grid-2">
+        <% classes.forEach(function(course) { %>
+          <article class="tile course-row" data-reveal>
+            <a href="/classes/<%= course.slug %>" class="tile-media" aria-label="<%= course.title %>">
+              <% if (course.image_url) { %><img src="<%= course.image_url %>" alt="" loading="lazy" width="400" height="300"><% } %>
+            </a>
+            <div class="tile-body">
+              <div class="label"><%= course.module_label || 'Programme' %></div>
+              <h3><a href="/classes/<%= course.slug %>"><%= course.title %></a></h3>
+              <p class="lead" style="font-size:0.9rem"><%= course.summary %></p>
+              <a class="btn btn-ghost" style="align-self:start;margin-top:0.35rem" href="/classes/<%= course.slug %>">View module</a>
+            </div>
+          </article>
+        <% }) %>
+      </div>
+    <% } %>
   </div>
 </section>
 
-<section class="section section-white">
+<section class="section section-navy">
   <div class="container">
-    <div class="section-head" style="justify-content:center;text-align:center">
+    <div class="chart-panel glass-dark" data-reveal>
       <div>
-        <div class="label">The Rayfort Distinction</div>
-        <h2 style="margin:0.35rem 0;color:var(--rf-navy-deep)">Uncompromising Standards</h2>
+        <div class="label" style="color:#ffdad6">Institutional proof</div>
+        <h2>Standards you can measure</h2>
+        <p class="lead" style="margin-top:0.75rem">A decade of atelier precision and executive mentorship — tracked as outcomes, not slogans.</p>
+        <div class="stat-grid" style="margin-top:1.5rem">
+          <div class="stat" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.12)">
+            <strong style="color:#fff"><%= site.rc.replace('RC ','') %></strong>
+            <div class="label" style="color:#ffdad6">Incorporated</div>
+          </div>
+          <div class="stat" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.12)">
+            <strong style="color:#fff" data-count="250" data-suffix="+">0</strong>
+            <div class="label" style="color:rgba(220,227,239,0.7)">Executives mentored</div>
+          </div>
+          <div class="stat" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.12)">
+            <strong style="color:#fff" data-count="100" data-suffix="%">0</strong>
+            <div class="label" style="color:rgba(220,227,239,0.7)">Handcrafted</div>
+          </div>
+          <div class="stat" style="background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.12)">
+            <strong style="color:#fff" data-count="9" data-suffix=" Lines">0</strong>
+            <div class="label" style="color:rgba(220,227,239,0.7)">Silhouettes</div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="stat-grid">
-      <div class="stat"><strong><%= site.rc.replace('RC ','') %></strong><div class="label" style="color:var(--rf-crimson)">Incorporated Integrity</div></div>
-      <div class="stat"><strong>100%</strong><div class="label">Handcrafted Precision</div></div>
-      <div class="stat"><strong>250+</strong><div class="label">Executives Mentored</div></div>
-      <div class="stat"><strong>9 Lines</strong><div class="label">Proprietary Silhouettes</div></div>
+      <div class="chart-frame" id="rf-chart-frame">
+        <svg id="rf-impact-chart" viewBox="0 0 440 260" role="img" aria-labelledby="rf-chart-title rf-chart-desc">
+          <title id="rf-chart-title">Rayfort executive mentorship growth</title>
+          <desc id="rf-chart-desc">Line chart showing executives mentored rising from 40 to 250 across five years.</desc>
+        </svg>
+        <div class="chart-toolbar">
+          <span class="label">Mentorship cohort growth · 5 years</span>
+          <button type="button" class="btn btn-soft" id="rf-export-chart" style="min-height:36px;padding:0.4rem 0.85rem">
+            <span class="material-symbols-outlined" aria-hidden="true">download</span>
+            Export frame
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <% if (testimonials.length) { %>
-<section class="section">
+<section class="section section-white">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head" data-reveal>
       <div>
-        <div class="label">Institutional Proof</div>
-        <h2 style="margin:0.35rem 0;color:var(--rf-navy-deep)">Words from Satisfied Clients</h2>
+        <div class="label">Client voices</div>
+        <h2>Words from satisfied clients</h2>
       </div>
-      <a href="/testimonials">All testimonials</a>
+      <a class="btn btn-ghost" href="/testimonials">All testimonials</a>
     </div>
     <div class="grid-3">
       <% testimonials.forEach(function(t) { %>
-        <blockquote class="quote-card">
+        <blockquote class="quote-card" data-reveal>
           <div>
-            <div class="stars"><%= '★'.repeat(t.rating || 5) %></div>
-            <p style="font-style:italic;line-height:1.65;color:var(--rf-muted)">“<%= t.quote %>”</p>
+            <div class="stars" aria-label="<%= t.rating || 5 %> out of 5 stars"><%= '★'.repeat(t.rating || 5) %></div>
+            <p>“<%= t.quote %>”</p>
           </div>
-          <div style="display:flex;gap:0.75rem;align-items:center">
-            <div class="avatar"><%= t.avatar_initials || 'RF' %></div>
+          <footer class="quote-author">
+            <div class="avatar" aria-hidden="true"><%= t.avatar_initials || 'RF' %></div>
             <div>
-              <strong style="color:var(--rf-navy)"><%= t.client_name %></strong>
+              <strong><%= t.client_name %></strong>
               <div class="label"><%= t.client_title %><% if (t.organization) { %>, <%= t.organization %><% } %></div>
             </div>
-          </div>
+          </footer>
         </blockquote>
       <% }) %>
     </div>
@@ -151,23 +206,23 @@
 <% if (posts.length) { %>
 <section class="section section-muted">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head" data-reveal>
       <div>
         <div class="label">Editorial</div>
-        <h2 style="margin:0.35rem 0;color:var(--rf-navy-deep)">Stories from the House</h2>
+        <h2>Stories from the house</h2>
       </div>
-      <a class="btn btn-ghost" href="/blog">Open Blog</a>
+      <a class="btn btn-ghost" href="/blog">Open blog</a>
     </div>
     <div class="grid-3">
       <% posts.forEach(function(post) { %>
-        <article class="card">
-          <a href="/blog/<%= post.slug %>" class="card-media" style="aspect-ratio:16/10">
-            <% if (post.cover_image) { %><img src="<%= post.cover_image %>" alt="" loading="lazy"><% } %>
+        <article class="tile" data-reveal>
+          <a href="/blog/<%= post.slug %>" class="tile-media" style="aspect-ratio:16/10" aria-label="<%= post.title %>">
+            <% if (post.cover_image) { %><img src="<%= post.cover_image %>" alt="" loading="lazy" width="640" height="400"><% } %>
           </a>
-          <div class="card-body">
+          <div class="tile-body">
             <div class="label"><%= post.published_label %> · <%= post.author %></div>
-            <h3 style="margin:0"><a href="/blog/<%= post.slug %>" style="text-decoration:none;color:var(--rf-navy)"><%= post.title %></a></h3>
-            <p class="lead" style="margin:0;font-size:0.9rem"><%= post.excerpt %></p>
+            <h3><a href="/blog/<%= post.slug %>"><%= post.title %></a></h3>
+            <p class="lead" style="font-size:0.9rem"><%= post.excerpt %></p>
           </div>
         </article>
       <% }) %>
@@ -176,16 +231,20 @@
 </section>
 <% } %>
 
-<section class="section" style="background:var(--rf-navy-deep);color:#fff">
-  <div class="container" style="display:grid;gap:2rem;grid-template-columns:1fr">
+<section class="section section-navy">
+  <div class="container cta-band" data-reveal>
     <div>
       <div class="eyebrow">Rayfort Investment · <%= site.rc %></div>
-      <h2 style="color:#fff;font-size:clamp(1.75rem,3vw,2.5rem)">Commission a Piece or Elevate Your Executive Cadre.</h2>
-      <p style="color:#dce3ef;max-width:36rem;line-height:1.7">Request the leather catalogue or book a private consultation for speech &amp; leadership masterclasses.</p>
-      <p style="margin-top:1rem"><a href="tel:+2348035281272" style="color:#ffdad6;text-decoration:none"><%= site.phone %></a> · <a href="mailto:<%= site.email %>" style="color:#ffdad6;text-decoration:none"><%= site.email %></a></p>
+      <h2>Commission a piece or elevate your executive cadre</h2>
+      <p>Request the leather catalogue or book a private consultation for speech and leadership masterclasses.</p>
+      <p style="margin-top:1rem">
+        <a class="tel" href="tel:+2348035281272"><%= site.phone %></a>
+        ·
+        <a class="mail" href="mailto:<%= site.email %>"><%= site.email %></a>
+      </p>
     </div>
     <div>
-      <a class="btn btn-light" href="/contact#inquiry">Direct Inquiry</a>
+      <a class="btn btn-light magnetic" href="/contact#inquiry">Send a direct inquiry</a>
     </div>
   </div>
 </section>

@@ -1,10 +1,10 @@
 <footer class="site-footer">
   <div class="container footer-grid">
     <div>
-      <div class="brand" style="margin-bottom:0.75rem">
-        <div class="brand-mark">R</div>
+      <a class="brand" href="/" style="margin-bottom:0.85rem" aria-label="Rayfort Investment home">
+        <div class="brand-mark" aria-hidden="true">R</div>
         <span class="brand-name">Rayfort Investment</span>
-      </div>
+      </a>
       <p class="lead" style="margin:0 0 1rem">Bespoke leathercraft under Rayfort Bags and elite institutional capacity enhancement via the Executive Classes Academy.</p>
       <div class="label" style="color:var(--rf-navy);margin-bottom:0.35rem">Registered Company: <%= site.rc %></div>
       <div style="color:var(--rf-muted);font-size:0.875rem">Headquarters: <%= site.address %></div>
@@ -32,7 +32,7 @@
     </div>
     <div>
       <h4>Visit &amp; Call</h4>
-      <p style="color:var(--rf-muted);font-size:0.9rem;line-height:1.6;margin:0 0 0.75rem">
+      <p class="lead" style="font-size:0.9rem;margin:0 0 0.85rem">
         <%= site.address %><br>
         <a href="tel:+2348035281272"><%= site.phone %></a>
       </p>
@@ -41,10 +41,10 @@
   </div>
   <div class="container footer-bottom">
     <span>© <%= new Date().getFullYear() %> Rayfort Investment Company Ltd. (<%= site.rc %>). All rights reserved.</span>
-    <div style="display:flex;gap:1.25rem">
+    <nav aria-label="Footer">
       <a href="/about">About</a>
       <a href="/contact">Contact</a>
       <a href="/admin">Admin</a>
-    </div>
+    </nav>
   </div>
 </footer>

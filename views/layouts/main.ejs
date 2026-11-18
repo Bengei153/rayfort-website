@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Rayfort Investment Co. Ltd — bespoke leather bags and executive communication classes. RC 1414179.">
   <title><%= title ? title + " — " : "" %>Rayfort Investment Co. Ltd</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,12 +12,16 @@
   <link rel="stylesheet" href="/css/site.css">
 </head>
 <body data-page="<%= page || '' %>">
+  <a class="skip-link" href="#main">Skip to content</a>
   <%- include('../partials/header') %>
-  <main>
+  <main id="main">
     <%- body %>
   </main>
   <%- include('../partials/footer') %>
   <%- include('../partials/mobile-nav') %>
-  <script src="/js/site.js"></script>
+  <div class="rf-cursor" aria-hidden="true"></div>
+  <div class="rf-cursor-ring" aria-hidden="true"></div>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js" defer></script>
+  <script src="/js/site.js" defer></script>
 </body>
 </html>

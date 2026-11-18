@@ -1,13 +1,13 @@
-<div id="rf-mobile-nav" class="mobile-nav" data-open="false" role="dialog" aria-modal="true" aria-label="Site navigation">
+<div id="rf-mobile-nav" class="mobile-nav" data-open="false" role="dialog" aria-modal="true" aria-label="Site navigation" hidden>
   <div class="mobile-nav__scrim"></div>
-  <div class="mobile-nav__panel">
-    <div style="display:flex;justify-content:space-between;align-items:center">
-      <strong style="font-family:'Bodoni Moda',serif;text-transform:uppercase">Rayfort</strong>
+  <div class="mobile-nav__panel glass">
+    <div class="mobile-nav__head">
+      <strong class="font-display" style="text-transform:uppercase;letter-spacing:0.04em">Rayfort</strong>
       <button type="button" id="rf-mobile-close" class="menu-btn" aria-label="Close menu">
-        <span class="material-symbols-outlined">close</span>
+        <span class="material-symbols-outlined" aria-hidden="true">close</span>
       </button>
     </div>
-    <nav>
+    <nav aria-label="Mobile">
       <a href="/" <%= page === 'home' ? 'aria-current="page"' : '' %>>Home</a>
       <a href="/bags" <%= page === 'bags' ? 'aria-current="page"' : '' %>>Bags</a>
       <a href="/classes" <%= page === 'classes' ? 'aria-current="page"' : '' %>>Classes</a>
