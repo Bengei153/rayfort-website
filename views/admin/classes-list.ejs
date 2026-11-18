@@ -1,0 +1,28 @@
+<div class="admin-top">
+  <div>
+    <div class="label">Academy</div>
+    <h1 style="margin:0.25rem 0;color:var(--rf-navy-deep)">Classes</h1>
+  </div>
+  <a class="btn btn-primary" href="/admin/classes/new">Add class</a>
+</div>
+<div class="table-wrap">
+  <table>
+    <thead><tr><th></th><th>Title</th><th>Format</th><th>Status</th><th></th></tr></thead>
+    <tbody>
+      <% classes.forEach(function(c) { %>
+        <tr>
+          <td><% if (c.image_url) { %><img class="thumb" src="<%= c.image_url %>" alt=""><% } %></td>
+          <td><strong><%= c.title %></strong><div class="label"><%= c.module_label || '' %></div></td>
+          <td><%= c.format || '—' %></td>
+          <td><%= c.is_published ? 'Published' : 'Draft' %></td>
+          <td style="white-space:nowrap">
+            <a href="/admin/classes/<%= c.id %>/edit">Edit</a>
+            <form action="/admin/classes/<%= c.id %>/delete" method="post" style="display:inline" onsubmit="return confirm('Delete this class?')">
+              <button type="submit" style="border:0;background:none;color:#ba1a1a;cursor:pointer;padding:0;margin-left:0.75rem">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>

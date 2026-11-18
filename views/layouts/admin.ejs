@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= title %> — Rayfort Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+  <div class="admin-shell">
+    <aside class="admin-side">
+      <div style="margin-bottom:1.5rem">
+        <div class="brand-mark" style="margin-bottom:0.5rem">R</div>
+        <strong>Rayfort Admin</strong>
+        <div style="opacity:0.7;font-size:0.8rem;margin-top:0.25rem"><%= admin && admin.email %></div>
+      </div>
+      <nav style="display:grid;gap:0.25rem">
+        <a href="/admin" class="<%= page === 'dashboard' ? 'active' : '' %>">Dashboard</a>
+        <a href="/admin/bags" class="<%= page === 'bags' ? 'active' : '' %>">Bag Designs</a>
+        <a href="/admin/classes" class="<%= page === 'classes' ? 'active' : '' %>">Classes</a>
+        <a href="/admin/blog" class="<%= page === 'blog' ? 'active' : '' %>">Blog Stories</a>
+        <a href="/admin/testimonials" class="<%= page === 'testimonials' ? 'active' : '' %>">Testimonials</a>
+        <a href="/admin/inquiries" class="<%= page === 'inquiries' ? 'active' : '' %>">Inquiries</a>
+        <a href="/" target="_blank" rel="noopener">View site ↗</a>
+      </nav>
+      <form action="/admin/logout" method="post" style="margin-top:2rem">
+        <button class="btn btn-outline" type="submit" style="width:100%">Sign out</button>
+      </form>
+    </aside>
+    <div class="admin-main">
+      <% if (flash) { %>
+        <div class="flash <%= flash.type %>"><%= flash.message %></div>
+      <% } %>
+      <%- body %>
+    </div>
+  </div>
+</body>
+</html>

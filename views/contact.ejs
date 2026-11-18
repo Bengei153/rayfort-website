@@ -1,0 +1,64 @@
+<section class="section">
+  <div class="container" style="display:grid;gap:2rem">
+    <div style="display:grid;gap:2rem" class="contact-grid">
+      <div>
+        <div class="label">Direct Concierge</div>
+        <h1 style="color:var(--rf-navy-deep);margin:0.4rem 0 0.75rem">Contact Rayfort Investment</h1>
+        <p class="lead">Catalogue requests, bespoke leather commissions, and executive class admissions — routed to the correct division.</p>
+        <div class="card" style="padding:1.5rem;margin-top:1.5rem;display:grid;gap:1rem">
+          <a href="tel:+2348035281272" style="text-decoration:none;color:var(--rf-navy);font-weight:600"><%= site.phone %></a>
+          <a href="mailto:<%= site.email %>" style="text-decoration:none;color:var(--rf-navy);font-weight:600"><%= site.email %></a>
+          <div style="color:var(--rf-muted)"><%= site.address %></div>
+          <div class="label"><%= site.rc %> · Confidential protocol</div>
+        </div>
+      </div>
+
+      <div id="inquiry">
+        <div class="form-card">
+          <div style="display:flex;justify-content:space-between;gap:1rem;margin-bottom:1rem">
+            <h2 style="margin:0;color:var(--rf-navy)">Send an inquiry</h2>
+            <span class="label">Prompt response</span>
+          </div>
+          <% if (flash) { %>
+            <div class="flash <%= flash.type %>"><%= flash.message %></div>
+          <% } %>
+          <form method="post" action="/contact">
+            <div class="field">
+              <label for="full_name">Full name &amp; title</label>
+              <input id="full_name" name="full_name" required placeholder="e.g. Dr. Ngozi Adeleke, Director">
+            </div>
+            <div class="field">
+              <label for="email">Corporate / private email</label>
+              <input id="email" name="email" type="email" required placeholder="director@organization.com">
+            </div>
+            <div class="field">
+              <label for="phone">Phone (optional)</label>
+              <input id="phone" name="phone" type="tel" placeholder="+234 …">
+            </div>
+            <div class="field">
+              <label for="interest">Primary area of interest</label>
+              <select id="interest" name="interest">
+                <% if (typeof queryInterest !== 'undefined' && queryInterest) { %><option selected><%= queryInterest %></option><% } %>
+                <option>Rayfort Bags — Master Catalogue &amp; Bespoke Order</option>
+                <option>Executive Communication Classes</option>
+                <option>Corporate Gifting Commission</option>
+                <option>C-Suite Private Oratory Masterclass</option>
+                <option>Both Divisions Consultation</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="message">Brief</label>
+              <textarea id="message" name="message" rows="4" placeholder="Share volume, timeline, or training objectives…"><%= (typeof queryInterest !== 'undefined' && queryInterest) ? ('Inquiry regarding: ' + queryInterest) : '' %></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Submit request</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+@media (min-width:900px){
+  .contact-grid{grid-template-columns:0.9fr 1.1fr !important}
+}
+</style>

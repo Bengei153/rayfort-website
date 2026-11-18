@@ -1,0 +1,26 @@
+<div class="admin-top">
+  <div>
+    <div class="label">Inbox</div>
+    <h1 style="margin:0.25rem 0;color:var(--rf-navy-deep)">Inquiries</h1>
+  </div>
+</div>
+<div class="table-wrap">
+  <table>
+    <thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Interest</th><th>Message</th><th>Date</th></tr></thead>
+    <tbody>
+      <% if (!inquiries.length) { %>
+        <tr><td colspan="6">No inquiries yet.</td></tr>
+      <% } %>
+      <% inquiries.forEach(function(i) { %>
+        <tr>
+          <td><strong><%= i.full_name %></strong></td>
+          <td><a href="mailto:<%= i.email %>"><%= i.email %></a></td>
+          <td><%= i.phone || '—' %></td>
+          <td><%= i.interest || '—' %></td>
+          <td style="max-width:280px"><%= i.message || '—' %></td>
+          <td><%= i.created_label %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>

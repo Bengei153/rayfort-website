@@ -1,0 +1,29 @@
+<div class="admin-top">
+  <div>
+    <div class="label">Editorial</div>
+    <h1 style="margin:0.25rem 0;color:var(--rf-navy-deep)">Blog Stories</h1>
+  </div>
+  <a class="btn btn-primary" href="/admin/blog/new">Add story</a>
+</div>
+<div class="table-wrap">
+  <table>
+    <thead><tr><th></th><th>Title</th><th>Author</th><th>Date</th><th>Status</th><th></th></tr></thead>
+    <tbody>
+      <% posts.forEach(function(p) { %>
+        <tr>
+          <td><% if (p.cover_image) { %><img class="thumb" src="<%= p.cover_image %>" alt=""><% } %></td>
+          <td><strong><%= p.title %></strong></td>
+          <td><%= p.author %></td>
+          <td><%= p.published_label %></td>
+          <td><%= p.is_published ? 'Published' : 'Draft' %></td>
+          <td style="white-space:nowrap">
+            <a href="/admin/blog/<%= p.id %>/edit">Edit</a>
+            <form action="/admin/blog/<%= p.id %>/delete" method="post" style="display:inline" onsubmit="return confirm('Delete this story?')">
+              <button type="submit" style="border:0;background:none;color:#ba1a1a;cursor:pointer;padding:0;margin-left:0.75rem">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>

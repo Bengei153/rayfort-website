@@ -1,0 +1,50 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="brand" style="margin-bottom:0.75rem">
+        <div class="brand-mark">R</div>
+        <span class="brand-name">Rayfort Investment</span>
+      </div>
+      <p class="lead" style="margin:0 0 1rem">Bespoke leathercraft under Rayfort Bags and elite institutional capacity enhancement via the Executive Classes Academy.</p>
+      <div class="label" style="color:var(--rf-navy);margin-bottom:0.35rem">Registered Company: <%= site.rc %></div>
+      <div style="color:var(--rf-muted);font-size:0.875rem">Headquarters: <%= site.address %></div>
+      <div style="color:var(--rf-muted);font-size:0.875rem">Inquiries: <a href="mailto:<%= site.email %>"><%= site.email %></a></div>
+    </div>
+    <div>
+      <h4>Rayfort Bags</h4>
+      <ul>
+        <li><a href="/bags?category=tote">Executive Totes</a></li>
+        <li><a href="/bags?category=structured">Structured Cases</a></li>
+        <li><a href="/bags?category=corporate">Corporate Briefcases</a></li>
+        <li><a href="/bags?category=travelling">Travel Holdalls</a></li>
+        <li><a href="/bags">Full Catalogue</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Executive Classes</h4>
+      <ul>
+        <li><a href="/classes">All Programmes</a></li>
+        <li><a href="/classes/executive-public-speaking">Public Speaking</a></li>
+        <li><a href="/classes/media-crisis-communication">Crisis Media</a></li>
+        <li><a href="/blog">Academy Stories</a></li>
+        <li><a href="/contact#inquiry">Book a Cohort</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Visit &amp; Call</h4>
+      <p style="color:var(--rf-muted);font-size:0.9rem;line-height:1.6;margin:0 0 0.75rem">
+        <%= site.address %><br>
+        <a href="tel:+2348035281272"><%= site.phone %></a>
+      </p>
+      <a class="btn btn-primary" href="/testimonials">Client Voices</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© <%= new Date().getFullYear() %> Rayfort Investment Company Ltd. (<%= site.rc %>). All rights reserved.</span>
+    <div style="display:flex;gap:1.25rem">
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a href="/admin">Admin</a>
+    </div>
+  </div>
+</footer>

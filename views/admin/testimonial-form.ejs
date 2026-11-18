@@ -1,0 +1,29 @@
+<div class="admin-top">
+  <div>
+    <div class="label">Testimonials</div>
+    <h1 style="margin:0.25rem 0;color:var(--rf-navy-deep)"><%= item ? 'Edit testimonial' : 'New testimonial' %></h1>
+  </div>
+  <a href="/admin/testimonials">← Back</a>
+</div>
+<form class="form-card" method="post" action="<%= item ? '/admin/testimonials/' + item.id : '/admin/testimonials' %>">
+  <div class="field"><label for="client_name">Client name</label><input id="client_name" name="client_name" required value="<%= item ? item.client_name : '' %>"></div>
+  <div class="field"><label for="client_title">Title</label><input id="client_title" name="client_title" value="<%= item ? item.client_title : '' %>"></div>
+  <div class="field"><label for="organization">Organization</label><input id="organization" name="organization" value="<%= item ? item.organization : '' %>"></div>
+  <div class="field"><label for="quote">Quote</label><textarea id="quote" name="quote" rows="4" required><%= item ? item.quote : '' %></textarea></div>
+  <div class="field"><label for="rating">Rating (1–5)</label><input id="rating" name="rating" type="number" min="1" max="5" value="<%= item ? item.rating : 5 %>"></div>
+  <div class="field"><label for="avatar_initials">Avatar initials</label><input id="avatar_initials" name="avatar_initials" maxlength="3" value="<%= item ? item.avatar_initials : '' %>"></div>
+  <div class="field">
+    <label for="division">Division</label>
+    <select id="division" name="division">
+      <option value="bags" <%= item && item.division === 'bags' ? 'selected' : '' %>>Bags</option>
+      <option value="classes" <%= item && item.division === 'classes' ? 'selected' : '' %>>Classes</option>
+      <option value="both" <%= !item || item.division === 'both' ? 'selected' : '' %>>Both</option>
+    </select>
+  </div>
+  <div class="field"><label for="sort_order">Sort order</label><input id="sort_order" name="sort_order" type="number" value="<%= item ? item.sort_order : 0 %>"></div>
+  <div class="check-row">
+    <label><input type="checkbox" name="is_published" value="1" <%= !item || item.is_published ? 'checked' : '' %>> Published</label>
+    <label><input type="checkbox" name="is_featured" value="1" <%= item && item.is_featured ? 'checked' : '' %>> Featured on home</label>
+  </div>
+  <button class="btn btn-primary" type="submit">Save testimonial</button>
+</form>

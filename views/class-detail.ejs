@@ -1,0 +1,26 @@
+<section class="section">
+  <div class="container" style="display:grid;gap:2rem">
+    <div style="display:grid;gap:2rem" class="detail-grid">
+      <div style="border-radius:0.5rem;overflow:hidden;background:#edeef0;aspect-ratio:16/11">
+        <% if (course.image_url) { %><img src="<%= course.image_url %>" alt="<%= course.title %>" style="width:100%;height:100%;object-fit:cover"><% } %>
+      </div>
+      <div>
+        <a href="/classes" class="label" style="text-decoration:none">← Back to Classes</a>
+        <div class="label" style="margin-top:1rem"><%= course.module_label || 'Programme' %></div>
+        <h1 style="margin:0.4rem 0 0.75rem;color:var(--rf-navy-deep);font-size:clamp(2rem,4vw,2.75rem)"><%= course.title %></h1>
+        <p class="lead"><%= course.summary %></p>
+        <p class="prose"><%= course.description %></p>
+        <div class="chip-row" style="margin:1rem 0 1.5rem">
+          <% if (course.duration) { %><span class="chip"><%= course.duration %></span><% } %>
+          <% if (course.format) { %><span class="chip"><%= course.format %></span><% } %>
+        </div>
+        <a class="btn btn-primary" href="/contact?interest=<%= encodeURIComponent(course.title) %>#inquiry">Enroll / Inquire</a>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+@media (min-width:900px){
+  .detail-grid{grid-template-columns:1.1fr 1fr !important}
+}
+</style>

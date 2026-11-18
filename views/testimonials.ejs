@@ -1,0 +1,46 @@
+<section class="page-hero" style="min-height:300px">
+  <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=85" alt="Handshake in boardroom">
+  <div class="container">
+    <div class="eyebrow"><span class="dot"></span> Client Voices</div>
+    <h1 style="font-size:clamp(2.2rem,5vw,3.25rem);color:#fff;margin:0.75rem 0">Testimonials</h1>
+    <p style="color:#dce3ef;max-width:36rem">Proof from patrons who commissioned leatherware and executives who completed our classes.</p>
+  </div>
+</section>
+
+<div class="filter-bar">
+  <div class="container filter-row">
+    <a href="/testimonials" class="<%= activeDivision === 'all' ? 'active' : '' %>">All</a>
+    <a href="/testimonials?division=bags" class="<%= activeDivision === 'bags' ? 'active' : '' %>">Bags Clients</a>
+    <a href="/testimonials?division=classes" class="<%= activeDivision === 'classes' ? 'active' : '' %>">Classes Alumni</a>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <% if (!testimonials.length) { %>
+      <div class="card" style="padding:2rem;text-align:center">
+        <h3 style="color:var(--rf-navy)">No testimonials in this filter</h3>
+        <p class="lead">Satisfied clients appear here after admin review.</p>
+      </div>
+    <% } else { %>
+      <div class="grid-3">
+        <% testimonials.forEach(function(t) { %>
+          <blockquote class="quote-card">
+            <div>
+              <div class="stars"><%= '★'.repeat(t.rating || 5) %></div>
+              <div class="label" style="margin:0.5rem 0"><%= t.division === 'bags' ? 'Bags Client' : t.division === 'classes' ? 'Classes Alumni' : 'House Client' %></div>
+              <p style="font-style:italic;line-height:1.65;color:var(--rf-muted)">“<%= t.quote %>”</p>
+            </div>
+            <div style="display:flex;gap:0.75rem;align-items:center">
+              <div class="avatar"><%= t.avatar_initials || 'RF' %></div>
+              <div>
+                <strong style="color:var(--rf-navy)"><%= t.client_name %></strong>
+                <div class="label"><%= t.client_title %><% if (t.organization) { %>, <%= t.organization %><% } %></div>
+              </div>
+            </div>
+          </blockquote>
+        <% }) %>
+      </div>
+    <% } %>
+  </div>
+</section>

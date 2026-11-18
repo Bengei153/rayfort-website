@@ -1,0 +1,24 @@
+<div class="admin-top">
+  <div>
+    <div class="label">Classes</div>
+    <h1 style="margin:0.25rem 0;color:var(--rf-navy-deep)"><%= course ? 'Edit class' : 'New class' %></h1>
+  </div>
+  <a href="/admin/classes">← Back</a>
+</div>
+<form class="form-card" method="post" action="<%= course ? '/admin/classes/' + course.id : '/admin/classes' %>" enctype="multipart/form-data">
+  <div class="field"><label for="title">Title</label><input id="title" name="title" required value="<%= course ? course.title : '' %>"></div>
+  <div class="field"><label for="slug">Slug</label><input id="slug" name="slug" value="<%= course ? course.slug : '' %>"></div>
+  <div class="field"><label for="module_label">Module label</label><input id="module_label" name="module_label" value="<%= course ? course.module_label : '' %>"></div>
+  <div class="field"><label for="summary">Summary</label><textarea id="summary" name="summary" rows="2"><%= course ? course.summary : '' %></textarea></div>
+  <div class="field"><label for="description">Description</label><textarea id="description" name="description" rows="5"><%= course ? course.description : '' %></textarea></div>
+  <div class="field"><label for="duration">Duration</label><input id="duration" name="duration" value="<%= course ? course.duration : '' %>"></div>
+  <div class="field"><label for="format">Format</label><input id="format" name="format" value="<%= course ? course.format : '' %>"></div>
+  <div class="field"><label for="image_url">Image URL</label><input id="image_url" name="image_url" value="<%= course ? course.image_url : '' %>"></div>
+  <div class="field"><label for="image">Upload image</label><input id="image" name="image" type="file" accept="image/*"></div>
+  <div class="field"><label for="sort_order">Sort order</label><input id="sort_order" name="sort_order" type="number" value="<%= course ? course.sort_order : 0 %>"></div>
+  <div class="check-row">
+    <label><input type="checkbox" name="is_published" value="1" <%= !course || course.is_published ? 'checked' : '' %>> Published</label>
+    <label><input type="checkbox" name="is_featured" value="1" <%= course && course.is_featured ? 'checked' : '' %>> Featured</label>
+  </div>
+  <button class="btn btn-primary" type="submit">Save class</button>
+</form>

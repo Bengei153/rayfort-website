@@ -1,0 +1,33 @@
+<div class="admin-top">
+  <div>
+    <div class="label">Catalogue</div>
+    <h1 style="margin:0.25rem 0;color:var(--rf-navy-deep)">Bag Designs</h1>
+  </div>
+  <a class="btn btn-primary" href="/admin/bags/new">Post new design</a>
+</div>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th></th><th>Title</th><th>Category</th><th>Status</th><th></th></tr>
+    </thead>
+    <tbody>
+      <% bags.forEach(function(bag) { %>
+        <tr>
+          <td><% if (bag.image_url) { %><img class="thumb" src="<%= bag.image_url %>" alt=""><% } %></td>
+          <td>
+            <strong><%= bag.title %></strong>
+            <div class="label"><%= bag.code || bag.slug %></div>
+          </td>
+          <td><%= bag.category %></td>
+          <td><%= bag.is_published ? 'Published' : 'Draft' %><% if (bag.is_featured) { %> · Featured<% } %></td>
+          <td style="white-space:nowrap">
+            <a href="/admin/bags/<%= bag.id %>/edit">Edit</a>
+            <form action="/admin/bags/<%= bag.id %>/delete" method="post" style="display:inline" onsubmit="return confirm('Delete this design?')">
+              <button type="submit" style="border:0;background:none;color:#ba1a1a;cursor:pointer;padding:0;margin-left:0.75rem">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>

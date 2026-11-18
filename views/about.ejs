@@ -1,0 +1,43 @@
+<section class="page-hero">
+  <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=85" alt="Architectural office interior">
+  <div class="container">
+    <div class="eyebrow"><span class="dot"></span> <%= site.rc %></div>
+    <h1 style="font-size:clamp(2.2rem,5vw,3.5rem);color:#fff;max-width:16ch;margin:0.75rem 0">Institutional craft. Executive clarity.</h1>
+    <p style="color:#dce3ef;max-width:36rem">Two sovereign divisions under one registered company — leather atelier and executive classes — never conflated.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="display:grid;gap:2rem;grid-template-columns:1fr">
+    <div>
+      <div class="label">Our Mandate</div>
+      <h2 style="color:var(--rf-navy-deep);margin:0.4rem 0">Elegance in carry. Authority in speech.</h2>
+      <div style="width:3rem;height:3px;background:#530005;margin-bottom:1rem"></div>
+      <p class="lead">Rayfort Investment Company Ltd. (<%= site.rc %>) is headquartered at <%= site.address %>. Our atelier produces heirloom leather goods; our academy equips board directors and enterprise leadership with commanding presence.</p>
+      <p class="lead">Every engagement — whether a numbered leather commission or a closed-door rhetoric intensive — is governed by precision, discretion, and permanence.</p>
+    </div>
+    <div class="grid-2">
+      <article class="card" style="padding:1.5rem">
+        <h3 style="color:var(--rf-navy);margin-top:0">Rayfort Bags</h3>
+        <p class="lead">Nine curated silhouettes in full-grain leather — a retail and institutional division of its own.</p>
+        <a href="/bags">Explore bags →</a>
+      </article>
+      <article class="card" style="padding:1.5rem">
+        <h3 style="color:var(--rf-navy);margin-top:0">Executive Classes</h3>
+        <p class="lead">Clinical coaching in speaking, negotiation, media crisis, and leadership presentations.</p>
+        <a href="/classes">View classes →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section-muted">
+  <div class="container">
+    <div class="stat-grid">
+      <div class="stat"><strong><%= site.rc.replace('RC ','') %></strong><div class="label">Corporate Affairs Commission</div></div>
+      <div class="stat"><strong>250+</strong><div class="label">Executives mentored</div></div>
+      <div class="stat"><strong>10-Year</strong><div class="label">Artisan warranty</div></div>
+      <div class="stat"><strong><%= site.address %></strong><div class="label">Headquarters</div></div>
+    </div>
+  </div>
+</section>

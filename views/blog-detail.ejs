@@ -1,0 +1,11 @@
+<article class="section">
+  <div class="container" style="max-width:760px">
+    <a href="/blog" class="label" style="text-decoration:none">← All stories</a>
+    <div class="label" style="margin-top:1rem"><%= post.published_label %> · <%= post.author %></div>
+    <h1 style="margin:0.5rem 0 1rem;color:var(--rf-navy-deep);font-size:clamp(2rem,4vw,3rem)"><%= post.title %></h1>
+    <% if (post.cover_image) { %>
+      <img src="<%= post.cover_image %>" alt="" style="width:100%;border-radius:0.5rem;margin:1rem 0 1.75rem;aspect-ratio:16/9;object-fit:cover">
+    <% } %>
+    <div class="prose"><%- post.body %></div>
+  </div>
+</article>

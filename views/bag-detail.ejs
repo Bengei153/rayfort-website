@@ -1,0 +1,27 @@
+<section class="section">
+  <div class="container" style="display:grid;gap:2rem;grid-template-columns:1fr">
+    <div style="display:grid;gap:2rem" class="detail-grid">
+      <div style="border-radius:0.5rem;overflow:hidden;background:#edeef0;aspect-ratio:4/5;max-height:720px">
+        <% if (bag.image_url) { %><img src="<%= bag.image_url %>" alt="<%= bag.title %>" style="width:100%;height:100%;object-fit:cover"><% } %>
+      </div>
+      <div>
+        <a href="/bags" class="label" style="text-decoration:none">← Back to Bags</a>
+        <div class="label" style="margin-top:1rem"><%= bag.badge || bag.category %> · <%= bag.code || '' %></div>
+        <h1 style="margin:0.4rem 0 0.75rem;color:var(--rf-navy-deep);font-size:clamp(2rem,4vw,3rem)"><%= bag.title %></h1>
+        <p class="lead"><%= bag.summary %></p>
+        <p class="prose"><%= bag.description %></p>
+        <% if (bag.features && bag.features.length) { %>
+          <div class="chip-row" style="margin:1rem 0 1.5rem">
+            <% bag.features.forEach(function(f) { %><span class="chip"><%= f %></span><% }) %>
+          </div>
+        <% } %>
+        <a class="btn btn-primary" href="/contact?interest=<%= encodeURIComponent(bag.title) %>#inquiry">Inquire / Order</a>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+@media (min-width:900px){
+  .detail-grid{grid-template-columns:1.05fr 1fr !important}
+}
+</style>

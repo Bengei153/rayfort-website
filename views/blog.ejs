@@ -1,0 +1,35 @@
+<section class="page-hero" style="min-height:320px">
+  <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1600&q=85" alt="Editorial writing desk">
+  <div class="container">
+    <div class="eyebrow"><span class="dot"></span> Rayfort Editorial</div>
+    <h1 style="font-size:clamp(2.2rem,5vw,3.25rem);color:#fff;margin:0.75rem 0">Stories &amp; Insights</h1>
+    <p style="color:#dce3ef;max-width:36rem">Craft notes from the atelier and leadership essays from the academy.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <% if (!posts.length) { %>
+      <div class="card" style="padding:2rem;text-align:center">
+        <h3 style="color:var(--rf-navy)">No stories published yet</h3>
+        <p class="lead">Check back soon for new editorial from Rayfort.</p>
+      </div>
+    <% } else { %>
+      <div class="grid-3">
+        <% posts.forEach(function(post) { %>
+          <article class="card">
+            <a href="/blog/<%= post.slug %>" class="card-media" style="aspect-ratio:16/10">
+              <% if (post.cover_image) { %><img src="<%= post.cover_image %>" alt="" loading="lazy"><% } %>
+            </a>
+            <div class="card-body">
+              <div class="label"><%= post.published_label %> · <%= post.author %></div>
+              <h2 style="font-size:1.35rem;margin:0"><a href="/blog/<%= post.slug %>" style="text-decoration:none;color:var(--rf-navy)"><%= post.title %></a></h2>
+              <p class="lead" style="margin:0;font-size:0.9rem"><%= post.excerpt %></p>
+              <a href="/blog/<%= post.slug %>">Read story →</a>
+            </div>
+          </article>
+        <% }) %>
+      </div>
+    <% } %>
+  </div>
+</section>

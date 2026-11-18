@@ -1,0 +1,31 @@
+<div class="admin-top">
+  <div>
+    <div class="label">Social proof</div>
+    <h1 style="margin:0.25rem 0;color:var(--rf-navy-deep)">Testimonials</h1>
+  </div>
+  <a class="btn btn-primary" href="/admin/testimonials/new">Add testimonial</a>
+</div>
+<div class="table-wrap">
+  <table>
+    <thead><tr><th>Client</th><th>Division</th><th>Quote</th><th>Status</th><th></th></tr></thead>
+    <tbody>
+      <% testimonials.forEach(function(t) { %>
+        <tr>
+          <td>
+            <strong><%= t.client_name %></strong>
+            <div class="label"><%= t.client_title || '' %></div>
+          </td>
+          <td><%= t.division %></td>
+          <td style="max-width:320px"><%= t.quote.slice(0, 120) %><%= t.quote.length > 120 ? '…' : '' %></td>
+          <td><%= t.is_published ? 'Published' : 'Draft' %></td>
+          <td style="white-space:nowrap">
+            <a href="/admin/testimonials/<%= t.id %>/edit">Edit</a>
+            <form action="/admin/testimonials/<%= t.id %>/delete" method="post" style="display:inline" onsubmit="return confirm('Delete this testimonial?')">
+              <button type="submit" style="border:0;background:none;color:#ba1a1a;cursor:pointer;padding:0;margin-left:0.75rem">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>

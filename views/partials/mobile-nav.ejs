@@ -1,0 +1,21 @@
+<div id="rf-mobile-nav" class="mobile-nav" data-open="false" role="dialog" aria-modal="true" aria-label="Site navigation">
+  <div class="mobile-nav__scrim"></div>
+  <div class="mobile-nav__panel">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <strong style="font-family:'Bodoni Moda',serif;text-transform:uppercase">Rayfort</strong>
+      <button type="button" id="rf-mobile-close" class="menu-btn" aria-label="Close menu">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <nav>
+      <a href="/" <%= page === 'home' ? 'aria-current="page"' : '' %>>Home</a>
+      <a href="/bags" <%= page === 'bags' ? 'aria-current="page"' : '' %>>Bags</a>
+      <a href="/classes" <%= page === 'classes' ? 'aria-current="page"' : '' %>>Classes</a>
+      <a href="/blog" <%= page === 'blog' ? 'aria-current="page"' : '' %>>Blog</a>
+      <a href="/testimonials" <%= page === 'testimonials' ? 'aria-current="page"' : '' %>>Testimonials</a>
+      <a href="/about" <%= page === 'about' ? 'aria-current="page"' : '' %>>About</a>
+      <a href="/contact" <%= page === 'contact' ? 'aria-current="page"' : '' %>>Contact</a>
+    </nav>
+    <a class="btn btn-primary" href="/contact#inquiry">Request Catalogue</a>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="admin-top">
+  <div>
+    <div class="label">Overview</div>
+    <h1 style="margin:0.25rem 0;color:var(--rf-navy-deep)">Dashboard</h1>
+  </div>
+</div>
+
+<div class="stat-grid" style="margin-bottom:2rem">
+  <div class="stat"><strong><%= stats.bags %></strong><div class="label">Bag Designs</div></div>
+  <div class="stat"><strong><%= stats.classes %></strong><div class="label">Classes</div></div>
+  <div class="stat"><strong><%= stats.posts %></strong><div class="label">Blog Stories</div></div>
+  <div class="stat"><strong><%= stats.testimonials %></strong><div class="label">Testimonials</div></div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:2rem">
+  <a class="btn btn-primary" href="/admin/bags/new">Post new design</a>
+  <a class="btn btn-ghost" href="/admin/blog/new">Add story</a>
+  <a class="btn btn-ghost" href="/admin/testimonials/new">Add testimonial</a>
+  <a class="btn btn-ghost" href="/admin/classes/new">Add class</a>
+</div>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>Recent inquiries</th><th>Email</th><th>Interest</th><th>Date</th></tr>
+    </thead>
+    <tbody>
+      <% if (!recentInquiries.length) { %>
+        <tr><td colspan="4">No inquiries yet.</td></tr>
+      <% } %>
+      <% recentInquiries.forEach(function(i) { %>
+        <tr>
+          <td><strong><%= i.full_name %></strong></td>
+          <td><%= i.email %></td>
+          <td><%= i.interest || '—' %></td>
+          <td><%= i.created_label %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+<p style="margin-top:0.75rem"><a href="/admin/inquiries">View all inquiries →</a></p>

@@ -1,0 +1,228 @@
+/* Rayfort Investment — shared polish */
+:root {
+  --rf-navy: #15224f;
+  --rf-navy-deep: #000b37;
+  --rf-crimson: #d32f2f;
+  --rf-silver: #b0b7c3;
+  --rf-hairline: #e8ecf2;
+  --rf-surface: #f8f9fb;
+  --rf-white: #ffffff;
+  --rf-on-surface: #191c1e;
+  --rf-muted: #45464f;
+  --rf-shadow-1: 0 8px 30px rgba(21, 34, 79, 0.04);
+  --rf-shadow-2: 0 16px 40px rgba(21, 34, 79, 0.08);
+  --rf-shadow-3: 0 24px 64px rgba(21, 34, 79, 0.16);
+  --rf-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --rf-duration: 220ms;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Visible keyboard focus */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--rf-navy) !important;
+  outline-offset: 2px !important;
+}
+
+/* Mobile nav drawer */
+.rf-menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 0.25rem;
+  border: 1px solid var(--rf-hairline);
+  background: var(--rf-white);
+  color: var(--rf-navy);
+  cursor: pointer;
+}
+
+.rf-mobile-nav {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+}
+
+.rf-mobile-nav[data-open="true"] {
+  display: block;
+}
+
+.rf-mobile-nav__scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(21, 34, 79, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+.rf-mobile-nav__panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: min(100%, 360px);
+  background: var(--rf-white);
+  box-shadow: var(--rf-shadow-3);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transform: translateX(100%);
+  transition: transform var(--rf-duration) var(--rf-ease);
+}
+
+.rf-mobile-nav[data-open="true"] .rf-mobile-nav__panel {
+  transform: translateX(0);
+}
+
+.rf-mobile-nav__links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.rf-mobile-nav__links a {
+  display: block;
+  padding: 0.875rem 0.75rem;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rf-muted);
+  text-decoration: none;
+  border-radius: 0.25rem;
+}
+
+.rf-mobile-nav__links a[aria-current="page"],
+.rf-mobile-nav__links a:hover {
+  color: var(--rf-navy-deep);
+  background: var(--rf-surface);
+}
+
+@media (max-width: 1023px) {
+  .rf-menu-btn {
+    display: inline-flex;
+  }
+}
+
+/* Toast feedback */
+.rf-toast-region {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: min(420px, calc(100vw - 2rem));
+  pointer-events: none;
+}
+
+.rf-toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.125rem;
+  background: var(--rf-white);
+  color: var(--rf-on-surface);
+  border: 1px solid var(--rf-hairline);
+  border-radius: 0.5rem;
+  box-shadow: var(--rf-shadow-2);
+  animation: rf-toast-in var(--rf-duration) var(--rf-ease);
+}
+
+.rf-toast[data-type="success"] {
+  border-left: 3px solid #10b981;
+}
+
+.rf-toast[data-type="error"] {
+  border-left: 3px solid #ba1a1a;
+}
+
+.rf-toast__title {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--rf-navy-deep);
+  margin: 0 0 0.25rem;
+}
+
+.rf-toast__body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--rf-muted);
+  margin: 0;
+}
+
+.rf-toast__close {
+  margin-left: auto;
+  border: 0;
+  background: transparent;
+  color: var(--rf-muted);
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 0.25rem;
+  flex-shrink: 0;
+}
+
+@keyframes rf-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Form success panels */
+.rf-form-success {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+}
+
+.rf-form-success[data-visible="true"] {
+  display: flex;
+}
+
+/* Hide decorative profile chip on marketing site */
+.rf-profile-chip {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
